@@ -47,7 +47,7 @@ public class GUI extends JFrame {
 		// Etape 3 : Création des éléments du menu Jeu
 		JMenuItem create = new JMenuItem("Créer un personnage");
 		JMenuItem play = new JMenuItem("Lancer une partie");
-		JMenuItem quit = new JMenuItem("Quitter la partie");
+		JMenuItem quit = new JMenuItem(new QuitAction("Quitter"));
 
 		// Etape 4 : Ajout des élément au menu Jeu
 		menuGame.add(create);
@@ -69,6 +69,9 @@ public class GUI extends JFrame {
 		menuBar.add(menuConfig);
 
 		JMenu menuHelp = new JMenu("Aide");
+		JMenuItem helpItem = new JMenuItem(new HelpAction(this, "Aide"));
+		
+		menuHelp.add(helpItem);
 
 		menuBar.add(menuHelp);
 
