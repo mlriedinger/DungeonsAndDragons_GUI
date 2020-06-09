@@ -128,13 +128,12 @@ public class GUI extends JFrame {
 		// Action panel
 		JPanel actionPanel = new ActionPanel();
 		actionPanel.setPreferredSize(new Dimension(this.getWidth() / 3, this.getHeight() / 3));
-		JTextArea area = new JTextArea();
-		actionPanel.add(area);
 		contentPane.add(actionPanel);
 
 		springLayout.putConstraint(SpringLayout.NORTH, actionPanel,(this.getHeight() / 3 + 2 * POSITIVE_BORDER), SpringLayout.NORTH, contentPane);
 		springLayout.putConstraint(SpringLayout.EAST, actionPanel, NEGATIVE_BORDER, SpringLayout.EAST, contentPane);
 		springLayout.putConstraint(SpringLayout.WEST, actionPanel, POSITIVE_BORDER, SpringLayout.EAST, boardPanel);
+		
 	}
 
 }
