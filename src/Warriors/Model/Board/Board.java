@@ -24,7 +24,7 @@ public class Board {
 	// Attributes
 	
 
-	public ArrayList<Cell> cellList = new ArrayList<Cell>();
+	private ArrayList<Cell> cellList = new ArrayList<Cell>();
 	
 	// Constructors
 	

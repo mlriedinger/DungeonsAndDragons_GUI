@@ -6,6 +6,6 @@ public interface Cell {
 
 	// Methods
 	
-	public void  interactWithPlayer(Character character);
+	public void interactWithPlayer(Character character);
 
 }

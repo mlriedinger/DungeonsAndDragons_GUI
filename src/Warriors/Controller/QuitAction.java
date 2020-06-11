@@ -1,4 +1,4 @@
-package Warriors.View;
+package Warriors.Controller;
 
 import java.awt.event.ActionEvent;
 

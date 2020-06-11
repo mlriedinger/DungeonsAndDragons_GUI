@@ -61,19 +61,20 @@ public abstract class Ennemy implements Cell {
 	
 	public int receiveDamage(Character player) {
 		currentEnnemyHealth = this.health;
-		if (currentEnnemyHealth != 0) {
-			damageReceived = player.getStrength();
+		damageReceived = player.getStrength();
+		if (currentEnnemyHealth - damageReceived > 0) {
 			currentEnnemyHealth -= damageReceived;
+			System.out.println("Le " + this.name + " reçoit " + damageReceived + " points de dégâts ! Il lui reste : " + currentEnnemyHealth + " points de vie.");
 		}
 		else {
-			System.out.println("Le " + this.name + "est mort ! \n");
+			System.out.println("Le " + this.name + " est mort ! \n");
 		}
 		return currentEnnemyHealth;
 	}
 	
 	private void hitPlayer(Character player) {
 		int currentPlayerHealth = player.getHealth();
-		if (currentPlayerHealth != 0) {
+		if (currentPlayerHealth > 0) {
 			currentPlayerHealth -= this.strength;
 			player.setHealth(currentPlayerHealth);
 		}
@@ -83,7 +84,6 @@ public abstract class Ennemy implements Cell {
 	public void interactWithPlayer(Character player) {
 		System.out.println("Oh non ! Un " + this.name + " !");
 		receiveDamage(player);
-		System.out.println("Le " + this.name + " reçoit " + damageReceived + " points de dégâts ! Il lui reste : " + currentEnnemyHealth + " points de vie.");
 		hitPlayer(player);
 		System.out.println("Tu perds " + this.strength + " points de vie.");
 		System.out.println("Il te reste " + player.getHealth() + " points de vie. \n");

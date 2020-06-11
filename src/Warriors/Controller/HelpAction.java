@@ -1,10 +1,12 @@
-package Warriors.View;
+package Warriors.Controller;
 
 import java.awt.event.ActionEvent;
 import javax.swing.*;
+import Warriors.View.GUI;
 
 public class HelpAction extends AbstractAction {
 	
+	private static final long serialVersionUID = 1L;
 	private GUI window;
 	
 	public HelpAction(GUI window, String text) {
@@ -13,10 +15,10 @@ public class HelpAction extends AbstractAction {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(window, "Déroulement du jeu\n" + 
-				"\n Ce jeu se déroule en mode tour par tour. À chaque tour, le joueur va lancer un dé virtuel à 6 faces afin de connaître le nombre de cases duquel il avance :\n" + 
-				"\n Si la nouvelle case atteinte est vide : on passe au tour suivant.\n" + 
-				"\n Si la nouvelle case contient un équipement, l’équipement est rajouté au personnage si et seulement si  :\n" + 
+		JOptionPane.showMessageDialog(window, "Déroulement du jeu\n\n" + 
+				"Ce jeu se déroule en mode tour par tour. À chaque tour, le joueur va lancer un dé virtuel à 6 faces afin de connaître le nombre de cases duquel il avance :\n\n" + 
+				"Si la nouvelle case atteinte est vide : on passe au tour suivant.\n\n" + 
+				"Si la nouvelle case contient un équipement, l’équipement est rajouté au personnage si et seulement si  :\n" + 
 				"\t \t ● Le personnage est compatible avec cet équipement \n" + 
 				"\t \t ● L’équipement actuel est moins avantageux que le nouveau.\n" + 
 				"\n Si la nouvelle case contient une potion : le personnage récupère le nombre de points de vie dé ni par le type de potion.\n" + 

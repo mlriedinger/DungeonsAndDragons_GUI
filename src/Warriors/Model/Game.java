@@ -66,7 +66,7 @@ public class Game {
 	 * with and its name
 	 **/
 
-	public void createCharacter() {
+	private void createCharacter() {
 		String playerAnswer = menu.displaySubMenu();
 		String name = menu.askUserForName();
 		switch (playerAnswer) {
@@ -90,7 +90,7 @@ public class Game {
 	 * its name
 	 */
 
-	public void launchMenuWithCharacter() {
+	private void launchMenuWithCharacter() {
 		do {
 			String playerAnswer = menu.displayMenuWithCharacter();
 			switch (playerAnswer) {
@@ -122,7 +122,7 @@ public class Game {
 	 * quit the game
 	 */
 
-	public void launchEndMenu() {
+	private void launchEndMenu() {
 		do {
 			String playerAnswer = menu.displayEndMenu();
 			switch (playerAnswer) {
@@ -144,7 +144,7 @@ public class Game {
 
 	/** This function asks the player for a new character name **/
 
-	public void modifyCharacter() {
+	private void modifyCharacter() {
 		String name = menu.askUserForName();
 		character.setName(name);
 		System.out.println("Le nouveau nom de ton personnage est : " + character.toString());
@@ -155,21 +155,29 @@ public class Game {
 	 * accordingly on the board
 	 **/
 
-	public void playGame() {
+	private void playGame() {
 		stateOfGame = START_GAME;
-		while (playerPosition < BOARD_SIZE) {
-			// menu.askUserToRollDice();
+		while (playerPosition < BOARD_SIZE && character.getHealth() != 0) {
+			menu.askUserToRollDice();
 			rollDice();
 			playerPosition(dice);
 			moveToCell(playerPosition, character);
+			if (character.getHealth() <= 0) {
+				System.out.println("GAME OVER...");
+				stateOfGame = CHARACTER_DEAD;
+			}
+			if (playerPosition >= BOARD_SIZE) {
+				System.out.println("Bravo, tu en es sorti vivant !");
+				stateOfGame = END_GAME;
+			}
 		}
-		stateOfGame = END_GAME;
+		
 		launchEndMenu();
 	}
 
 	/** This function returns a random number between 1 and 6 */
 
-	public int rollDice() {
+	private int rollDice() {
 		dice = 1 + (int) (Math.random() * ((6 - 1) + 1));
 		System.out.println("Lancé de dé ... tu obtiens " + dice + "\n");
 		return dice;
@@ -180,7 +188,7 @@ public class Game {
 	 * reached the end of the board
 	 */
 
-	public int playerPosition(int dice) {
+	private int playerPosition(int dice) {
 		if ((playerPosition + dice) < BOARD_SIZE) {
 			playerPosition += dice;
 			System.out.println("Tu avances jusqu'à la case " + playerPosition);

@@ -1,4 +1,7 @@
 package Warriors;
+/**
+ * 
+ */
 
 import Warriors.View.GUI;
 import Warriors.Model.Game;
@@ -20,7 +23,7 @@ public class Main {
 
 		// Appeler une instance de Game
 		
-		// Game game = new Game();
+		//Game game = new Game();
 		// game.launchMenu();
 		
 		// Board board = new Board();

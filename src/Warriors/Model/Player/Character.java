@@ -9,7 +9,6 @@ public abstract class Character {
 	private String name;
 	private int strength;
 	private int health;
-	private int currentHealth;
 	private int maxHealth;
 	private int maxStrength;
 	private Weapon weapon;
@@ -21,7 +20,6 @@ public abstract class Character {
 		this.strength = 5;
 		this.health = 5;
 		this.weapon = new BareHands();
-		this.currentHealth = health;
 	}
 
 	public Character(String name) {
@@ -29,7 +27,6 @@ public abstract class Character {
 		this.strength = 5;
 		this.health = 5;
 		this.weapon = new BareHands();
-		this.currentHealth = health;
 	}
 
 	public Character(String name, int strength, int health) {
@@ -37,7 +34,6 @@ public abstract class Character {
 		this.strength = strength;
 		this.health = health;
 		this.weapon = new BareHands();
-		this.currentHealth = health;
 	}
 
 	// Setters
@@ -52,10 +48,6 @@ public abstract class Character {
 
 	public void setHealth(int health) {
 		this.health = health;
-	}
-	
-	public void setCurrentHealth(int newHealth) {
-		this.currentHealth = newHealth;
 	}
 
 	public void setWeapon(Weapon weapon) {
@@ -74,10 +66,6 @@ public abstract class Character {
 
 	public int getHealth() {
 		return health;
-	}
-	
-	public int getCurrentHealth() {
-		return currentHealth;
 	}
 
 	public int getMaxHealth() {

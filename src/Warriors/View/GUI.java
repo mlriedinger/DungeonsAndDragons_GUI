@@ -3,9 +3,10 @@ package Warriors.View;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-
 import javax.swing.*;
-import java.awt.*;
+import Warriors.Controller.HelpAction;
+import Warriors.Controller.LaunchGameAction;
+import Warriors.Controller.QuitAction;
 
 public class GUI extends JFrame {
 
@@ -46,7 +47,7 @@ public class GUI extends JFrame {
 
 		// Etape 3 : Création des éléments du menu Jeu
 		JMenuItem create = new JMenuItem("Créer un personnage");
-		JMenuItem play = new JMenuItem("Lancer une partie");
+		JMenuItem play = new JMenuItem(new LaunchGameAction(this, "Lancer une partie"));
 		JMenuItem quit = new JMenuItem(new QuitAction("Quitter"));
 
 		// Etape 4 : Ajout des élément au menu Jeu
